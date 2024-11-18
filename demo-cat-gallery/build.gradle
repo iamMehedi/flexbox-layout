@@ -22,7 +22,9 @@ android {
 
     defaultConfig {
         applicationId "com.google.android.flexbox.apps.catgallery"
-        minSdkVersion rootProject.ext.minSdkVersion
+        namespace "com.google.android.flexbox.apps.catgallery"
+
+        minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -36,6 +38,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
@@ -44,4 +55,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:${rootProject.androidxRecyclerViewVersion}"
     implementation "com.google.android.material:material:${rootProject.materialVersion}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${rootProject.kotlinVersion}"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:${rootProject.navVersion}"
+    implementation "androidx.navigation:navigation-ui-ktx:${rootProject.navVersion}"
 }

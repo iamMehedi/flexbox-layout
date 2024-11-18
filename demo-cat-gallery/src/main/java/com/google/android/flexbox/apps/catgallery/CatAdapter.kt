@@ -16,9 +16,11 @@
 
 package com.google.android.flexbox.apps.catgallery
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexboxLayoutManager
 
 /**
  * Adapter class that handles the data set with the {@link RecyclerView.LayoutManager}
@@ -52,13 +54,15 @@ internal class CatAdapter : RecyclerView.Adapter<CatViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatViewHolder {
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.viewholder_cat, parent, false)
+        Log.d("ADAPTER", "creating viewholder for type: $viewType")
         return CatViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CatViewHolder, position: Int) {
+        Log.d("ADAPTER", "updating viewholder for pos: $position")
         val pos = position % CAT_IMAGE_IDS.size
         holder.bindTo(CAT_IMAGE_IDS[pos])
     }
 
-    override fun getItemCount() = CAT_IMAGE_IDS.size * 4
+    override fun getItemCount() = CAT_IMAGE_IDS.size * 40
 }

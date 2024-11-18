@@ -22,6 +22,8 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
+        namespace "com.google.android.flexbox"
+
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -37,18 +39,22 @@ android {
         }
     }
 
-    libraryVariants.all {
-        it.generateBuildConfigProvider.configure { enabled = false }
+    buildFeatures {
+        buildConfig false
     }
+
+    /*libraryVariants.all {
+        it.generateBuildConfigProvider?.configure { enabled = false }
+    }*/
 }
 
 dependencies {
-    compileOnly "androidx.core:core:${rootProject.androidxCoreVersion}"
+    compileOnly "androidx.core:core-ktx:${rootProject.androidxCoreVersion}"
     compileOnly "androidx.recyclerview:recyclerview:${rootProject.androidxRecyclerViewVersion}"
 
     testImplementation "junit:junit:${rootProject.junitVersion}"
 
-    androidTestImplementation "androidx.core:core:${rootProject.androidxCoreVersion}"
+    androidTestImplementation "androidx.core:core-ktx:${rootProject.androidxCoreVersion}"
     androidTestImplementation "androidx.recyclerview:recyclerview:${rootProject.androidxRecyclerViewVersion}"
     androidTestImplementation "androidx.annotation:annotation:${rootProject.androidxAnnotationVersion}"
     androidTestImplementation "androidx.test.ext:junit:${rootProject.androidxTestExtVersion}"

@@ -22,6 +22,8 @@ android {
 
     defaultConfig {
         applicationId "com.google.android.apps.flexbox"
+        namespace "com.google.android.apps.flexbox"
+
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -42,7 +44,7 @@ dependencies {
     implementation project(":flexbox")
     implementation "androidx.annotation:annotation:${rootProject.androidxAnnotationVersion}"
     implementation "androidx.appcompat:appcompat:${rootProject.androidxAppCompatVersion}"
-    implementation "androidx.preference:preference:${rootProject.androidxPreferenceVersion}"
+    implementation "androidx.preference:preference-ktx:${rootProject.androidxPreferenceVersion}"
     implementation "com.google.android.material:material:${rootProject.materialVersion}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 

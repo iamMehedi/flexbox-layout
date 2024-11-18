@@ -565,6 +565,11 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     }
 
     @Override
+    public RecyclerView.LayoutParams generateLayoutParams(ViewGroup.LayoutParams lp) {
+        return new LayoutParams(lp);
+    }
+
+    @Override
     public boolean checkLayoutParams(RecyclerView.LayoutParams lp) {
         return lp instanceof LayoutParams;
     }
@@ -1902,6 +1907,9 @@ public class FlexboxLayoutManager extends RecyclerView.LayoutManager implements 
     public void onAttachedToWindow(RecyclerView recyclerView) {
         super.onAttachedToWindow(recyclerView);
         mParent = (View) recyclerView.getParent();
+        if (DEBUG) {
+            Log.d(TAG, "onAttachedToWindow called");
+        }
     }
 
     @Override
